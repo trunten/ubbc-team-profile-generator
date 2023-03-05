@@ -1,6 +1,6 @@
 import Manager from "./lib/Manager.js";
 import Engineer from "./lib/Engineer.js";
-// import Intern from "./lib/Intern";
+import Intern from "./lib/Intern.js";
 import inquirer from "inquirer";
 import { resolve, join, dirname } from "path";
 import { fileURLToPath } from 'url';
@@ -63,7 +63,7 @@ function start () {
                 default: "123",
                 type: "input",
                 name: "officeNumber",
-                message: `What is the {type}'s office number?`,
+                message: `What is the ${type}'s office number?`,
                 validate: answer => {
                     if (!parseInt(answer)) {
                         return "Please enter a valid number";
@@ -76,7 +76,7 @@ function start () {
                 default: "trunten",
                 type: "input",
                 name: "github",
-                message: `What is the {type}'s github username?`,
+                message: `What is the ${type}'s github username?`,
                 validate: answer => {
                     if (answer.trim() === "") {
                         return "Github username cannot be blank";
@@ -89,7 +89,7 @@ function start () {
                 default: "MIT",
                 type: "input",
                 name: "school",
-                message: `What is the {type}'s school name?`,
+                message: `What is the ${type}'s school name?`,
                 validate: answer => {
                     if (answer.trim() === "") {
                         return "School name cannot be blank";
@@ -109,7 +109,7 @@ function start () {
                     break;
 
                 case "intern":
-                    employee = new Inter(answers.name, answers.id, answers.email, answers.school);
+                    employee = new Intern(answers.name, answers.id, answers.email, answers.school);
                     break;
             }
             team.push(employee);
@@ -129,8 +129,7 @@ function start () {
             } else if (answers.type === "Intern") {
                 createTeamMember("intern");
             } else {
-                console.log("Render");
-                // fs.writeFileSync(outputPath, render(team), "utf-8");
+                fs.writeFileSync(outputPath, render(team), "utf-8");
             }
         })
     }
