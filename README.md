@@ -25,12 +25,11 @@ A command line utility that generates a team roster HTML page from user input.
 
 ## Installation
 - Open your terminal and navigate to the aplication's containing folder
-- Type the following command into your terminal to install application dependancies:
-    - ```npm i```
+- Run the following command in your terminal to install application dependancies: <code>npm i</code>
 
 ## Usage
 - Install project dependancies using the command detailed in the [installation](#installation) section
-- Run the application by typing <code>node index.js</code> into your terminal
+- Run the following command in your terminal: <code>node index.js</code>
 - Answer the questions presented by typing your response in the terminal
 - Your <code>team.html</code> file will be output to the <code>output</code> sub-folder 
 
@@ -38,8 +37,7 @@ A command line utility that generates a team roster HTML page from user input.
 
 ## Tests
 - Install project dependancies using the command detailed in the [installation](#installation) section
-- Run the following command in your terminal:
-```npm test```
+- Run the following command in your terminal: <code>npm test</code>
 
 ## Credits
 - Email Validation regex: https://www.oreilly.com/library/view/regular-expressions-cookbook/9781449327453/ch04s01.html
