@@ -20,29 +20,32 @@ function start () {
 
     function createManager() {
         inquirer.prompt([
-            {
-              type: "input",
-              name: "name",
-              message: "What is the team manager's name?",
-              validate: answer => {
-                if (answer.trim() === "") {
-                  return "Manager name cannot be blank";
+            {   
+                default: "Jon",
+                type: "input",
+                name: "name",
+                message: "What is the team manager's name?",
+                validate: answer => {
+                    if (answer.trim() === "") {
+                    return "Manager name cannot be blank";
+                    }
+                    return true;
                 }
-                return true;
-              }
             },
-            {
+            {   
+                default: "JRD",
                 type: "input",
                 name: "id",
                 message: "What is the team manager's ID?",
                 validate: answer => {
-                  if (answer.trim() === "") {
-                    return "ID cannot be blank";
-                  }
-                  return true;
-                }
-              },
-              {
+                    if (answer.trim() === "") {
+                        return "ID cannot be blank";
+                    }
+                    return true;
+                    }
+            },
+            {
+                default: "jrd@my-team.com",
                 type: "input",
                 name: "email",
                 message: "What is the team manager's email address?",
@@ -54,25 +57,26 @@ function start () {
                     }
                     return true;
                 }
-              },
-              {
+            },
+            {
+                default: "123",
                 type: "input",
                 name: "officeNumber",
                 message: "What is the team manager's office number?",
                 validate: answer => {
                     const num = parseInt(answer);
-                  if (!num) {
-                    return "Please enter a valid number";
-                  }
-                  return true;
+                    if (!num) {
+                        return "Please enter a valid number";
+                    }
+                    return true;
                 }
-              },
-          ]).then(answers => {
+            },
+        ]).then(answers => {
             const manager = new Manager(...Object.values(answers));
             // const manager = new Manager(answers.name, answers.id, answers.email, answers.officeNumber);
             team.push(manager);
             createTeam();
-          })
+        })
     }
 
     function createTeam(){
@@ -95,13 +99,15 @@ function start () {
 
     function createEngineer() {
         console.log("Engineer");
+        createTeam();
     }
 
     function createIntern() {
         console.log("Intern");
+        createTeam();
     }
         
-    createManager(); // starts of the whole chain of events. 
+    createManager();
 }
 
 start();
