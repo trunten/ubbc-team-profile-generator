@@ -1,0 +1,28 @@
+{
+  "name": "ubbc-team-profile-generator",
+  "version": "1.0.0",
+  "description": "## Your Task",
+  "main": "index.js",
+  "type": "module",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/trunten/ubbc-team-profile-generator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/trunten/ubbc-team-profile-generator/issues"
+  },
+  "homepage": "https://github.com/trunten/ubbc-team-profile-generator#readme",
+  "dependencies": {
+    "inquirer": "^9.1.4",
+    "jest": "^29.4.3"
+  }
+}
