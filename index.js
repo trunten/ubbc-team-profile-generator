@@ -18,16 +18,16 @@ const team = [];
 
 function start () {
 
-    function createManager() {
+    function createTeamMember(type = "manager") {
         inquirer.prompt([
             {   
                 default: "Jon",
                 type: "input",
                 name: "name",
-                message: "What is the team manager's name?",
+                message: `What is the ${type}'s name?`,
                 validate: answer => {
                     if (answer.trim() === "") {
-                    return "Manager name cannot be blank";
+                    return "Name cannot be blank";
                     }
                     return true;
                 }
@@ -36,19 +36,19 @@ function start () {
                 default: "JRD",
                 type: "input",
                 name: "id",
-                message: "What is the team manager's ID?",
+                message: `What is the ${type}'s ID?`,
                 validate: answer => {
                     if (answer.trim() === "") {
                         return "ID cannot be blank";
                     }
                     return true;
-                    }
+                }
             },
             {
                 default: "jrd@my-team.com",
                 type: "input",
                 name: "email",
-                message: "What is the team manager's email address?",
+                message: `What is the ${type}'s email address?`,
                 validate: answer => {
                     // https://www.oreilly.com/library/view/regular-expressions-cookbook/9781449327453/ch04s01.html
                     const re = /^[\w!#$%&'*+/=?`{|}~^-]+(?:\.[\w!#$%&'*+/=?`{|}~^-]+)*@(?:[A-Z0-9-]+\.)+[A-Z]{2,6}$/i;
@@ -59,27 +59,65 @@ function start () {
                 }
             },
             {
+                when: () => type === "manager",
                 default: "123",
                 type: "input",
                 name: "officeNumber",
-                message: "What is the team manager's office number?",
+                message: `What is the {type}'s office number?`,
                 validate: answer => {
-                    const num = parseInt(answer);
-                    if (!num) {
+                    if (!parseInt(answer)) {
                         return "Please enter a valid number";
                     }
                     return true;
                 }
             },
+            {
+                when: () => type === "engineer",
+                default: "trunten",
+                type: "input",
+                name: "github",
+                message: `What is the {type}'s github username?`,
+                validate: answer => {
+                    if (answer.trim() === "") {
+                        return "Github username cannot be blank";
+                    }
+                    return true;
+                }
+            },
+            {
+                when: () => type === "intern",
+                default: "MIT",
+                type: "input",
+                name: "school",
+                message: `What is the {type}'s school name?`,
+                validate: answer => {
+                    if (answer.trim() === "") {
+                        return "School name cannot be blank";
+                    }
+                    return true;
+                }
+            },
         ]).then(answers => {
-            const manager = new Manager(...Object.values(answers));
-            // const manager = new Manager(answers.name, answers.id, answers.email, answers.officeNumber);
-            team.push(manager);
-            createTeam();
+            let employee;
+            switch (type) {
+                case "manager":
+                    employee = new Manager(answers.name, answers.id, answers.email, answers.officeNumber);
+                    break;
+                
+                case "engineer":
+                    employee = new Engineer(answers.name, answers.id, answers.email, answers.github);
+                    break;
+
+                case "intern":
+                    employee = new Inter(answers.name, answers.id, answers.email, answers.school);
+                    break;
+            }
+            team.push(employee);
+            chooseEmployeeType();
         })
     }
 
-    function createTeam(){
+    function chooseEmployeeType(){
         inquirer.prompt([{
             type: "list",
             name: "type",
@@ -87,27 +125,17 @@ function start () {
             choices: ["Engineer", "Intern", "No more employees needed"],
           }]).then(answers => {
             if (answers.type === "Engineer") {
-                createEngineer();
+                createTeamMember("engineer");
             } else if (answers.type === "Intern") {
-                createIntern();
+                createTeamMember("intern");
             } else {
                 console.log("Render");
                 // fs.writeFileSync(outputPath, render(team), "utf-8");
             }
         })
     }
-
-    function createEngineer() {
-        console.log("Engineer");
-        createTeam();
-    }
-
-    function createIntern() {
-        console.log("Intern");
-        createTeam();
-    }
         
-    createManager();
+    createTeamMember();
 }
 
 start();
