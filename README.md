@@ -33,6 +33,7 @@ A command line utility that generates a team roster HTML page from user input.
 - Run the application by typing <code>node index.js</code> into your terminal
 - Answer the questions presented by typing your response in the terminal
 -Your <code>README.md</code> file will be output to the <code>output</code> sub-folder 
+
 ![image](./assets/app-screenshot.png)
 
 ## Tests
