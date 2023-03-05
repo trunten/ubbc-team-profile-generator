@@ -129,6 +129,7 @@ function start () {
             } else if (answers.type === "Intern") {
                 createTeamMember("intern");
             } else {
+                fs.mkdirSync("output", { recursive: true }, err => { throw err });
                 fs.writeFileSync(outputPath, render(team), "utf-8");
             }
         })
