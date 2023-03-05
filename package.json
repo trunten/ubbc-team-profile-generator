@@ -3,12 +3,11 @@
   "version": "1.0.0",
   "description": "## Your Task",
   "main": "index.js",
-  "type": "module",
   "directories": {
     "lib": "lib"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --verbose test"
   },
   "repository": {
     "type": "git",
@@ -21,8 +20,10 @@
     "url": "https://github.com/trunten/ubbc-team-profile-generator/issues"
   },
   "homepage": "https://github.com/trunten/ubbc-team-profile-generator#readme",
-  "dependencies": {
-    "inquirer": "^9.1.4",
+  "devDependencies": {
     "jest": "^29.4.3"
+  },
+  "dependencies": {
+    "inquirer": "^8.2.5"
   }
 }
