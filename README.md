@@ -1,4 +1,4 @@
-# README Generator
+# Team Profile Generator
 
 [![License Badge](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](https://www.contributor-covenant.org/version/2/1/code_of_conduct/)
@@ -9,11 +9,10 @@ A command line utility that generates a team roster HTML page from user input.
 [Download Application](https://github.com/trunten/ubbc-team-profile-generator/archive/refs/heads/main.zip)
 
 ### User Story
-- TODO
+- As a manager a user want to generate a webpage that displays my team's basic info so that a user have quick access to their emails and GitHub profiles.
 
 ### Acceptance Criteria
-
-- TODO
+- This application will take in information about employees on a software engineering team, then generates an HTML webpage that displays summaries for each person.
 
 ## Table of contents
 - [Installation](#installation)
