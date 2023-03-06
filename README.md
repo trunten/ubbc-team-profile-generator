@@ -33,7 +33,7 @@ A command line utility that generates a team roster HTML page from user input.
 - Your <code>team.html</code> file will be output to the <code>output</code> sub-folder 
 - Example output:
 
-[![image](./assets/app-screenshot.png)](./output/sample-team.html)
+[![image](./assets/app-screenshot.png)](https://trunten.github.io/ubbc-team-profile-generator/output/sample-team.html)
 
 ## Tests
 - First ensure you have installed the project dependancies using the command detailed in the [installation](#installation) section
