@@ -21,10 +21,9 @@ A command line utility that generates a team roster HTML page from user input.
 - [Credits](#credits)
 - [Contributing](#contributing)
 - [License](#license)
-- [Video Guide](#video)
 
 ## Installation
-- Open your terminal and navigate to the aplication's containing folder
+- Open your terminal and navigate to the application's containing folder
 - Run the following command in your terminal to install application dependancies: <code>npm i</code>
 
 ## Usage
@@ -32,11 +31,12 @@ A command line utility that generates a team roster HTML page from user input.
 - Run the following command in your terminal: <code>node index.js</code>
 - Answer the questions presented by typing your response in the terminal
 - Your <code>team.html</code> file will be output to the <code>output</code> sub-folder 
+- Example output:
 
-![image](./assets/app-screenshot.png)
+[![image](./assets/app-screenshot.png)](./output/sample-team.html)
 
 ## Tests
-- Install project dependancies using the command detailed in the [installation](#installation) section
+- First ensure you have installed the project dependancies using the command detailed in the [installation](#installation) section
 - Run the following command in your terminal: <code>npm test</code>
 
 ## Credits
