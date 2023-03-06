@@ -12,7 +12,7 @@ A command line utility that generates a team roster HTML page from user input.
 - As a manager a user want to generate a webpage that displays my team's basic info so that a user have quick access to their emails and GitHub profiles.
 
 ### Acceptance Criteria
-- This application will take in information about employees on a software engineering team, then generates an HTML webpage that displays summaries for each person.
+- This application will take in information about employees on a software engineering team, then generate an HTML webpage that displays summaries for each person.
 
 ## Table of contents
 - [Installation](#installation)
