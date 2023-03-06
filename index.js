@@ -15,7 +15,6 @@ function start () {
     function createTeamMember(type = "manager") {
         inquirer.prompt([
             {   
-                default: "Jon",
                 type: "input",
                 name: "name",
                 message: `What is the ${type}'s name?`,
@@ -27,7 +26,6 @@ function start () {
                 }
             },
             {   
-                default: "JRD",
                 type: "input",
                 name: "id",
                 message: `What is the ${type}'s ID?`,
@@ -39,7 +37,6 @@ function start () {
                 }
             },
             {
-                default: "jrd@my-team.com",
                 type: "input",
                 name: "email",
                 message: `What is the ${type}'s email address?`,
@@ -54,7 +51,6 @@ function start () {
             },
             {
                 when: () => type === "manager",
-                default: "123",
                 type: "input",
                 name: "officeNumber",
                 message: `What is the ${type}'s office number?`,
@@ -67,7 +63,6 @@ function start () {
             },
             {
                 when: () => type === "engineer",
-                default: "trunten",
                 type: "input",
                 name: "github",
                 message: `What is the ${type}'s github username?`,
@@ -80,7 +75,6 @@ function start () {
             },
             {
                 when: () => type === "intern",
-                default: "MIT",
                 type: "input",
                 name: "school",
                 message: `What is the ${type}'s school name?`,
