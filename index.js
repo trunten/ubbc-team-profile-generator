@@ -11,7 +11,7 @@ const outputPath = join(OUTPUT_DIR, "team.html");
 const team = [];
 
 function start () {
-
+    // Funciton to create the team member of 'type' (manager, engineer or intern)
     function createTeamMember(type = "manager") {
         inquirer.prompt([
             {   
@@ -105,6 +105,7 @@ function start () {
         })
     }
 
+    // Funciton to promt user to pick which employee to generate next (or none at all)
     function chooseEmployeeType(){
         inquirer.prompt([{
             type: "list",
@@ -117,14 +118,21 @@ function start () {
             } else if (answers.type === "Intern") {
                 createTeamMember("intern");
             } else {
-                fs.mkdirSync("output", { recursive: true }, err => { throw err });
-                fs.writeFileSync(outputPath, render(team), "utf-8");
-                console.log("Team Roster generated successfully: " + outputPath);
+                generateOutput()
             }
         })
     }
-        
+
+    // Function to output the team roster html page
+    function generateOutput() {
+        fs.mkdirSync("output", { recursive: true }, err => { throw err });
+        fs.writeFileSync(outputPath, render(team), "utf-8");
+        console.log("Team Roster generated successfully: " + outputPath);
+    }
+    
+    // Starts everything off
     createTeamMember();
 }
 
+//Init 
 start();
