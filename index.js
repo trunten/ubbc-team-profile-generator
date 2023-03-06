@@ -125,6 +125,7 @@ function start () {
             } else {
                 fs.mkdirSync("output", { recursive: true }, err => { throw err });
                 fs.writeFileSync(outputPath, render(team), "utf-8");
+                console.log("Team Roster generated successfully: " + outputPath);
             }
         })
     }
